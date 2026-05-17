@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap');
+
+:root {
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html, body {
+  background: #faf7f3;
+  color: #4c443e;
+  font-family: var(--font-sans);
+  letter-spacing: -0.005em;
+}
+
+body {
+  background-image:
+    radial-gradient(at 15% 0%, rgba(201, 139, 150, 0.12) 0px, transparent 55%),
+    radial-gradient(at 85% 100%, rgba(168, 155, 181, 0.12) 0px, transparent 55%),
+    radial-gradient(at 50% 50%, rgba(154, 171, 142, 0.06) 0px, transparent 70%);
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+.serif { font-family: var(--font-serif); }
+.mono { font-family: var(--font-mono); }
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: #f4eee6; }
+::-webkit-scrollbar-thumb { background: #dccfbe; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #c98b96; }
+
+::selection { background: #e4bcc3; color: #3c3531; }
+
+button:focus-visible, input:focus-visible, textarea:focus-visible {
+  outline: 1px solid #c98b96;
+  outline-offset: 2px;
+}
+
+@keyframes flicker { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+.dot-pulse { animation: flicker 2s ease-in-out infinite; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-up { animation: fadeUp 0.6s ease-out forwards; }
+
+/* Soft card shadow for the light theme */
+.soft-shadow { box-shadow: 0 1px 2px rgba(60, 53, 49, 0.04), 0 4px 16px rgba(60, 53, 49, 0.05); }
