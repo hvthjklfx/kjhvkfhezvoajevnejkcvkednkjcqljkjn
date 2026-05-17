@@ -4,6 +4,17 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap');
 
+@keyframes flicker { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+.dot-pulse { animation: flicker 2s ease-in-out infinite; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-up { animation: fadeUp 0.6s ease-out forwards; }
+
+/* Soft card shadow for the light theme */
+.soft-shadow { box-shadow: 0 1px 2px rgba(60, 53, 49, 0.04), 0 4px 16px rgba(60, 53, 49, 0.05); }
 :root {
   --font-serif: 'Cormorant Garamond', Georgia, serif;
   --font-sans: 'Inter', system-ui, sans-serif;
@@ -56,14 +67,3 @@ button:focus-visible, input:focus-visible, textarea:focus-visible {
   outline-offset: 2px;
 }
 
-@keyframes flicker { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
-.dot-pulse { animation: flicker 2s ease-in-out infinite; }
-
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(8px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-.fade-up { animation: fadeUp 0.6s ease-out forwards; }
-
-/* Soft card shadow for the light theme */
-.soft-shadow { box-shadow: 0 1px 2px rgba(60, 53, 49, 0.04), 0 4px 16px rgba(60, 53, 49, 0.05); }
